@@ -1,0 +1,13 @@
+@Controller
+@RequestMapping("/products")
+public class ProductViewController {
+    
+    @Autowired
+    private ProductService productService;
+    
+    @GetMapping
+    public String viewProducts(Model model) {
+        model.addAttribute("products", productService.getAllProducts());
+        return "products";
+    }
+}
